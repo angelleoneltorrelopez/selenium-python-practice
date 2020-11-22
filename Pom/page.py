@@ -5,19 +5,25 @@ from Config.config import TestData
 
 
 class Page(GeneralMethod):
-    buttonsearch = (By.XPATH, "//div[@class = 'search']")
-    inputsearch = (By.XPATH, "//input[@name = 'q']")
+    a_element = (By.ID, "a")
+    abbr_element = (By.ID, "abbr")
+    button_element = (By.ID, "button")
 
     def __init__(self, driver):
         super().__init__(driver)
         self.driver.get(TestData.BASE_URL)
 
-    def get_page_title(self, title):
-        return self.get_title(title, 10)
+    def click_link(self):
+        return self.click(self.a_element, 10)
 
-    def click_icon_search(self):
-        self.click(self.buttonsearch, 10)
+    def click_link_js(self):
+        return self.click_js(self.a_element, 10)
 
-    def send_search(self, text):
-        self.send_keys(self.inputsearch, text, 10)
-        self.enter(self.inputsearch)
+    def click_button(self):
+        return self.click(self.button_element, 10)
+
+    def get_text_alert(self):
+        return self.alert_get_text(10)
+
+    def moveto_element(self):
+        return self.move_to_element(self.abbr_element)
