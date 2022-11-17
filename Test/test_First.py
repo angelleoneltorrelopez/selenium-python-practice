@@ -22,7 +22,7 @@ class Test_First(BaseTest):
         self.page = Page(self.driver)
         self.page.click_button()
         message = self.page.get_text_alert()
-        assert message == "Hello world!"
+        assert message == "Hello world!", "Reporte de regresion: El texto de la alerta en la pagina es: "+message
 
     def test_move_to_element(self):
         self.page = Page(self.driver)
@@ -34,9 +34,9 @@ class Test_First(BaseTest):
         [
             (2, 3, 5),
             (2, 8, 10),
-            (suma(2, 5), 5, 12),
-            (4, suma(3, 6), 13)
+            (suma(2, 5), 5, 13),
+            (4, suma(3, 6), 12)
         ]
     )
     def test_suma(self, input_x, input_y, expected):
-        assert suma(input_x, input_y) == expected
+        assert suma(input_x, input_y) == expected, "La suma fue incorrecta"
