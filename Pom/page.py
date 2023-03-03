@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from Config.GeneralMethod import GeneralMethod
-from Config.config import TestData
+from Config.general_methods import GeneralMethod
 
 
 class Page(GeneralMethod):
@@ -11,7 +10,6 @@ class Page(GeneralMethod):
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
 
     def click_link(self):
         return self.click(self.a_element, 10)
